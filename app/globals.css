@@ -1,0 +1,148 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Dark mode as default - deep dark background */
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+
+    /* Card colors */
+    --card: 222 47% 8%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover colors */
+    --popover: 222 47% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary colors - Blue gradient */
+    --primary: 217 91% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary colors - Indigo tones */
+    --secondary: 243 75% 59%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted colors */
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+
+    /* Accent colors */
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Destructive colors */
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Border and input */
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 217 91% 60%;
+
+    /* Chart colors */
+    --chart-1: 217 91% 60%;
+    --chart-2: 243 75% 59%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 263 70% 50%;
+    --chart-5: 340 75% 55%;
+
+    /* Border radius */
+    --radius: 0.5rem;
+
+    /* Brand Blue gradient colors */
+    --brand-blue-50: 214 100% 97%;
+    --brand-blue-100: 214 95% 93%;
+    --brand-blue-200: 213 97% 87%;
+    --brand-blue-300: 212 96% 78%;
+    --brand-blue-400: 213 94% 68%;
+    --brand-blue-500: 217 91% 60%;
+    --brand-blue-600: 221 83% 53%;
+    --brand-blue-700: 224 76% 48%;
+    --brand-blue-800: 226 71% 40%;
+    --brand-blue-900: 224 64% 33%;
+
+    /* Brand Indigo gradient colors */
+    --brand-indigo-50: 244 100% 97%;
+    --brand-indigo-100: 244 96% 95%;
+    --brand-indigo-200: 244 93% 91%;
+    --brand-indigo-300: 244 89% 85%;
+    --brand-indigo-400: 244 84% 76%;
+    --brand-indigo-500: 243 75% 59%;
+    --brand-indigo-600: 243 75% 51%;
+    --brand-indigo-700: 244 58% 44%;
+    --brand-indigo-800: 244 55% 37%;
+    --brand-indigo-900: 242 47% 29%;
+
+    /* Typography - Modern futuristic fonts */
+    --font-sans:
+      "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+    --font-display: "Space Grotesk", "Inter", sans-serif;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted rounded-lg;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    @apply bg-gradient-brand bg-clip-text text-transparent;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Glass morphism effect for cards */
+  .glass {
+    @apply bg-card/50 backdrop-blur-lg border border-border/50;
+  }
+
+  /* Hover glow effect */
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-lg hover:shadow-brand-blue-500/20;
+  }
+}

@@ -7,9 +7,9 @@ import { AnimatedBackground } from "@/components/shared/AnimatedBackground";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 
 interface ProjectDetailPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 // Generate static params for all projects
@@ -23,7 +23,8 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: ProjectDetailPageProps): Promise<Metadata> {
-  const project = projects.find((p) => p.slug === params.slug);
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     return {
@@ -50,8 +51,11 @@ export async function generateMetadata({
   };
 }
 
-export default function ProjectDetailPage({ params }: ProjectDetailPageProps) {
-  const project = projects.find((p) => p.slug === params.slug);
+export default async function ProjectDetailPage({
+  params,
+}: ProjectDetailPageProps) {
+  const { slug } = await params;
+  const project = projects.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();

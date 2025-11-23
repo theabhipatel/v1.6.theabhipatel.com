@@ -93,8 +93,8 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${orbitron.variable} font-sans antialiased`}
       >
+        <main className="min-h-screen pb-24">{children}</main>
         <Navbar />
-        <main className="min-h-screen">{children}</main>
         <Footer />
       </body>
     </html>

@@ -159,28 +159,50 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           >
-            {/* Primary CTA */}
+            {/* Primary CTA - DevOps Pipeline Button */}
             <Link
               href={ctaLink}
-              className="group relative inline-flex items-center justify-center gap-2 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white rounded-xl overflow-hidden transition-all duration-300 hover:scale-105 hover:shadow-2xl w-full sm:w-auto"
+              className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-white rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto max-w-[280px] sm:max-w-none"
               style={{
                 background:
-                  "linear-gradient(135deg, hsl(var(--brand-blue-500)), hsl(var(--brand-indigo-600)))",
+                  "linear-gradient(135deg, hsl(var(--brand-blue-600)), hsl(var(--brand-indigo-700)))",
               }}
             >
-              {/* Animated background on hover */}
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-indigo-600 to-brand-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-
-              {/* Shimmer effect */}
-              <span className="absolute inset-0 w-full h-full">
-                <span className="absolute inset-0 w-1/2 h-full bg-gradient-to-r from-transparent via-white/25 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-[200%] transition-transform duration-1000 ease-out"></span>
+              {/* Animated glowing border runner */}
+              <span className="absolute inset-0 rounded-lg overflow-hidden">
+                <span className="absolute inset-[-2px] animate-border-run">
+                  <span className="absolute w-[40%] h-[2px] top-0 left-0 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></span>
+                  <span className="absolute w-[2px] h-[40%] top-0 right-0 bg-gradient-to-b from-transparent via-cyan-400 to-transparent"></span>
+                  <span className="absolute w-[40%] h-[2px] bottom-0 right-0 bg-gradient-to-l from-transparent via-cyan-400 to-transparent"></span>
+                  <span className="absolute w-[2px] h-[40%] bottom-0 left-0 bg-gradient-to-t from-transparent via-cyan-400 to-transparent"></span>
+                </span>
               </span>
 
-              <span className="relative z-10">{ctaText}</span>
+              {/* Animated background on hover */}
+              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-brand-indigo-700 to-brand-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+
+              {/* DevOps Pipeline Icon */}
               <svg
-                className="relative z-10 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1"
+                className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:rotate-180"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+
+              <span className="relative z-10">{ctaText}</span>
+
+              {/* Arrow with pulse */}
+              <svg
+                className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1 group-hover:animate-pulse"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -189,19 +211,35 @@ export default function HeroSection({
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth={2.5}
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  d="M13 7l5 5m0 0l-5 5m5-5H6"
                 />
               </svg>
             </Link>
 
-            {/* Secondary CTA */}
+            {/* Secondary CTA - Contact Button with Mesh Background */}
             <Link
               href="/contact"
-              className="group inline-flex items-center justify-center gap-2 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-foreground rounded-xl border-2 border-brand-blue-500/30 hover:border-brand-blue-500 bg-background/50 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg w-full sm:w-auto"
+              className="group relative inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 text-sm sm:text-base font-semibold text-foreground rounded-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] w-full sm:w-auto max-w-[280px] sm:max-w-none"
             >
-              <span>Get in Touch</span>
+              {/* Animated glowing border runner - different pattern */}
+              <span className="absolute inset-0 rounded-lg">
+                <span className="absolute inset-[-2px] animate-border-run-reverse">
+                  <span className="absolute w-[50%] h-[2px] top-0 right-0 bg-gradient-to-l from-transparent via-brand-blue-500 to-transparent"></span>
+                  <span className="absolute w-[2px] h-[50%] bottom-0 right-0 bg-gradient-to-t from-transparent via-brand-blue-500 to-transparent"></span>
+                  <span className="absolute w-[50%] h-[2px] bottom-0 left-0 bg-gradient-to-r from-transparent via-brand-blue-500 to-transparent"></span>
+                  <span className="absolute w-[2px] h-[50%] top-0 left-0 bg-gradient-to-b from-transparent via-brand-blue-500 to-transparent"></span>
+                </span>
+              </span>
+
+              {/* Mesh gradient background */}
+              <span className="absolute inset-0 bg-gradient-to-br from-brand-blue-500/10 via-brand-indigo-500/5 to-transparent backdrop-blur-sm border border-brand-blue-500/20 rounded-lg"></span>
+
+              {/* Hover effect - animated mesh */}
+              <span className="absolute inset-0 bg-gradient-to-tr from-brand-blue-500/20 via-brand-indigo-500/10 to-brand-blue-500/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></span>
+
+              {/* DevOps Cloud Icon */}
               <svg
-                className="w-5 h-5 transition-transform duration-300 group-hover:rotate-45"
+                className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:scale-110 group-hover:-translate-y-0.5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -209,9 +247,20 @@ export default function HeroSection({
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2.5}
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  strokeWidth={2}
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
+              </svg>
+
+              <span className="relative z-10">Get in Touch</span>
+
+              {/* Sparkle effect */}
+              <svg
+                className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-all duration-300 group-hover:rotate-90 group-hover:scale-125"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" />
               </svg>
             </Link>
           </motion.div>

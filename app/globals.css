@@ -161,6 +161,52 @@
   .animate-flame-flow {
     animation: flame-flow 3s ease-in-out infinite;
   }
+
+  /* Glowing border runner animation - clockwise */
+  @keyframes border-run {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(60%, 0);
+    }
+    50% {
+      transform: translate(60%, 100%);
+    }
+    75% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  .animate-border-run {
+    animation: border-run 3s linear infinite;
+  }
+
+  /* Glowing border runner animation - counter-clockwise */
+  @keyframes border-run-reverse {
+    0% {
+      transform: translate(0, 0);
+    }
+    25% {
+      transform: translate(-50%, 0);
+    }
+    50% {
+      transform: translate(-50%, 100%);
+    }
+    75% {
+      transform: translate(0, 100%);
+    }
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  .animate-border-run-reverse {
+    animation: border-run-reverse 4s linear infinite;
+  }
 }
 
 @layer components {

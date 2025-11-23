@@ -109,15 +109,28 @@ export default function HeroSection({
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 leading-[1.1] tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black mb-4 sm:mb-6 leading-[1.1] tracking-tight"
           >
             <span
-              className="block bg-clip-text text-transparent bg-gradient-to-r from-brand-blue-400 via-brand-indigo-500 to-brand-blue-600 animate-gradient"
+              className="block relative bg-clip-text text-transparent bg-gradient-to-r from-brand-blue-400 via-brand-indigo-500 to-brand-blue-600"
               style={{
                 backgroundSize: "200% auto",
               }}
             >
+              {/* Base gradient text */}
               {name}
+
+              {/* Flowing flame gradient overlay */}
+              <span
+                className="absolute inset-0 bg-clip-text text-transparent bg-gradient-to-r from-transparent via-brand-indigo-800/70 to-transparent animate-flame-flow"
+                style={{
+                  backgroundSize: "200% 100%",
+                  mixBlendMode: "overlay",
+                }}
+                aria-hidden="true"
+              >
+                {name}
+              </span>
             </span>
           </motion.h1>
 

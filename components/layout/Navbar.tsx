@@ -46,14 +46,14 @@ export function Navbar() {
 
   return (
     <nav
-      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[calc(100%-2rem)] max-w-fit ${
         isVisible
           ? "translate-y-0 opacity-100"
           : "translate-y-24 opacity-0 pointer-events-none"
       }`}
     >
-      <div className="glass rounded-full px-4 py-3 border border-border/50 shadow-2xl shadow-brand-blue-500/10">
-        <div className="flex items-center gap-2">
+      <div className="glass rounded-full px-2 sm:px-4 py-2 sm:py-3 border border-border/50 shadow-2xl shadow-brand-blue-500/10">
+        <div className="flex items-center gap-1 sm:gap-2">
           {navLinks.map((link) => {
             const Icon = link.icon;
             const isActive = pathname === link.href;
@@ -62,14 +62,14 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`group relative flex items-center gap-2 px-4 py-2.5 rounded-full transition-all duration-300 ${
+                className={`group relative flex items-center gap-2 px-2 sm:px-4 py-2 sm:py-2.5 rounded-full transition-all duration-300 ${
                   isActive
                     ? "bg-gradient-brand text-white shadow-lg shadow-brand-blue-500/30"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
                 }`}
               >
                 <Icon
-                  className={`w-5 h-5 transition-transform duration-300 ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 ${
                     isActive ? "scale-110" : "group-hover:scale-110"
                   }`}
                 />
@@ -77,7 +77,7 @@ export function Navbar() {
                   className={`text-sm font-medium whitespace-nowrap transition-all duration-300 ${
                     isActive
                       ? "opacity-100 max-w-[100px]"
-                      : "opacity-0 max-w-0 overflow-hidden group-hover:opacity-100 group-hover:max-w-[100px]"
+                      : "opacity-0 max-w-0 overflow-hidden sm:group-hover:opacity-100 sm:group-hover:max-w-[100px]"
                   }`}
                 >
                   {link.label}

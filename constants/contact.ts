@@ -28,15 +28,5 @@ export const contactInfo: ContactInfo = {
       url: "https://twitter.com/theabhipatelx",
       icon: "🐦",
     },
-    {
-      platform: "Dev.to",
-      url: "https://dev.to/theabhipatel",
-      icon: "📝",
-    },
-    {
-      platform: "Stack Overflow",
-      url: "https://stackoverflow.com/users/theabhipatel",
-      icon: "📚",
-    },
   ],
 };

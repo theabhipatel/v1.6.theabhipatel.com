@@ -10,7 +10,7 @@ export interface ContactInfo {
 }
 
 export const contactInfo: ContactInfo = {
-  email: "contact@theabhipatel.com",
+  email: "theabhipatel.co@gmail.com",
 
   socialLinks: [
     {
@@ -25,7 +25,7 @@ export const contactInfo: ContactInfo = {
     },
     {
       platform: "Twitter",
-      url: "https://twitter.com/theabhipatel",
+      url: "https://twitter.com/theabhipatelx",
       icon: "🐦",
     },
     {
